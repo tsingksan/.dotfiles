@@ -1,6 +1,7 @@
 [submodule "base/.config/nvim"]
 	path = base/.config/nvim
 	url = https://github.com/NvChad/starter
+	brach = main
 	ignore = all
 [submodule "base/.config/alacritty/themes"]
 	path = base/.config/alacritty/themes

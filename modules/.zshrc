@@ -24,11 +24,16 @@ plugins=(
 )
 
 export GPG_TTY=$(tty)
+gpg-connect-agent updatestartuptty /bye >/dev/null
+# if ! pgrep -x "gpg-agent" > /dev/null
+# then
+#     gpg-agent --daemon
+# fi
+
 unset SSH_AGENT_PID
 if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
   export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
 fi
-echo UPDATESTARTUPTTY | gpg-connect-agent 1> /dev/null
 
 # Set the default editor
 alias vim='nvim'
@@ -46,14 +51,15 @@ function cd() {
   builtin cd "$@" && ls
 }
 
-# where proxy
 proxy() {
-  export https_proxy=http://127.0.0.1:7897 http_proxy=http://127.0.0.1:7897 all_proxy=socks5://127.0.0.1:7897
-  echo "https_proxy=http://127.0.0.1:7897\nhttp_proxy=http://127.0.0.1:7897\nall_proxy=socks5://127.0.0.1:7897"
+  export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890
 }
 
-# where noproxy
 noproxy () {
   unset http_proxy https_proxy all_proxy
   echo "HTTP Proxy off"
 }
+
+if [ -z "$https_proxy" ]; then
+  proxy
+fi
