@@ -1,18 +1,14 @@
-live_config_reload = true
+# https://github.com/hmarr/dotfiles/blob/main/bin/update-alacritty-icon.sh
 
-import = [
-  "~/.config/alacritty/themes/themes/1custom.toml",
-] # gruvbox_dark solarized_dark nord dracula catppuccin_mocha material_theme meliora
-
-[shell]
-args    = ["-c", "-l", "tmux new-session -A -D -s ZLL"]
-program = "/bin/zsh"
+[terminal]
+  [terminal.shell]
+  args    = ["-c", "-l", "tmux new-session -A -D -s ZLL"]
+  program = "/bin/zsh"
 
 [env]
 TERM = "xterm-256color"
 
 [window]
-# dimensions                = { columns = 132, lines = 42 }
 blur                      = false
 decorations               = "Buttonless"
 decorations_theme_variant = "None"
@@ -20,8 +16,8 @@ dynamic_padding           = false
 dynamic_title             = true
 opacity                   = 0.9
 option_as_alt             = "Both"
-padding                   = { x = 18, y = 10 }
-startup_mode              = "Maximized"
+padding                   = { x = 6, y = 6 }
+startup_mode              = "Windowed"
 title                     = "Alacritty"
 
 [font]
@@ -42,6 +38,20 @@ size = 13
   [font.bold_italic]
   family = "FiraMono Nerd Font"
   style  = "Bold Italic"
+
+  [font.offset]
+  x = 0
+  y = 1
+
+# Only open URLs on Cmd + click
+[[hints.enabled]]
+command         = "open"
+post_processing = true
+regex           = "(ipfs:|ipns:|magnet:|mailto:|gemini:|gopher:|https:|http:|news:|file:|git:|ssh:|ftp:)[^\u0000-\u001F\u007F-<>\"\\s{-}\\^⟨⟩`]+"
+
+  [hints.enabled.mouse]
+  enabled = true
+  mods    = "Command"
 
 [selection]
 save_to_clipboard = true
@@ -108,3 +118,17 @@ bindings = [
   { key = "End", chars = "\u0002?", mods = "Command|Alt" },  # 帮助
   { key = "T", chars = "\u0002t", mods = "Alt" },            # Show the time.
 ]
+
+[general]
+live_config_reload = true
+
+import = [
+  "~/.config/alacritty/themes/themes/1custom.toml",
+] # gruvbox_dark solarized_dark nord dracula catppuccin_mocha material_theme meliora
+
+
+# . Prompt for an index to move the current window. 提示输入索引以移动window。
+# : Enter the tmux command prompt. 输入 tmux 命令提示符
+# D Choose a client to detach. 选择要分离的客户端。
+# r 强制重绘附加的客户端。
+# w Choose the current window interactively.

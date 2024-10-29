@@ -90,74 +90,74 @@ $time\
 add_newline = true
 
 [character]
-format = "$symbol "
+error_symbol   = "[](purple)"
+format         = "$symbol "
 success_symbol = "[󰞷](bold blue)"
-error_symbol = "[](purple)"
 
 [env_var.VIMSHELL] # vim subshell
 format = "[$env_value]($style)"
-style = 'green'
+style  = 'green'
 
 [username]
-style_user = "yellow bold"
+disabled   = false
+format     = "[$user]($style) ▻ "
 style_root = "purple bold"
-format = "[$user]($style) ▻ "
-disabled = false
+style_user = "yellow bold"
 
 [directory]
-home_symbol = ""
+format            = ' [$path]($style)[$read_only]($read_only_style)'
+home_symbol       = "～"
+read_only         = " 󰌾"
 truncation_length = 2
 truncation_symbol = " "
-read_only = " 󰌾"
-format = ' [$path]($style)[$read_only]($read_only_style)'
 
 [cmd_duration]
+format   = "[$duration ](bright-yellow)"
 min_time = 500
-format = "[$duration ](bright-yellow)"
 
 [jobs]
 format = "[ $symbol$number]($style)"
-style = "white"
+style  = "white"
 symbol = "[▶ ](blue)"
 
 [localip]
-ssh_only = true
-format = " ◯[$localipv4](bold magenta)"
 disabled = false
+format   = " ◯[$localipv4](bold magenta)"
+ssh_only = true
 
 [time]
-disabled = false
-format = "[ $time]($style)"
-time_format = "%R"
+disabled        = false
+format          = "[ $time]($style)"
+style           = "dimmed white"
+time_format     = "%R"
 utc_time_offset = "local"
-style = "dimmed white"
 
 [battery]
-format = "[ $percentage $symbol]($style)"
-full_symbol = "[█](green)"
-charging_symbol = "[↑](green)"
+charging_symbol    = "[↑](green)"
 discharging_symbol = "[↓]()"
-unknown_symbol = "[░]()"
-empty_symbol = "[▃](red)"
+empty_symbol       = "[▃](red)"
+format             = "[ $percentage $symbol]($style)"
+full_symbol        = "[█](green)"
+unknown_symbol     = "[░]()"
 
-[[battery.display]]
-threshold = 40
-style = "dimmed yellow"
+    [[battery.display]]
+    style     = "dimmed yellow"
+    threshold = 40
 
-[[battery.display]]
-threshold = 70
-style = "dimmed white"
+    [[battery.display]]
+    style     = "dimmed white"
+    threshold = 70
 
 [git_branch]
 format = "[ $symbol $branch(:$remote_branch)]($style)"
+style  = "bold 5"
 symbol = "[](bold 5)"
-style = "bold 5"
 
 [git_status]
 style = "fg:5"
 # format = """([$ahead_behind$staged$modified$untracked$renamed$deleted$conflicted$stashed]($style))"""
 # conflicted = "󱃟"
-ahead = "${count}"
+ahead  = "${count}"
 behind = "${count}"
 # diverged = "[${ahead_count}${behind_count}](cyan)"
 # untracked = "◌◦"
@@ -168,155 +168,155 @@ renamed = "R"
 # deleted = "[✕](red)"
 
 [deno]
-format = " deno [∫ $version](blue)"
+format         = " deno [∫ $version](blue)"
 version_format = "${major}.${minor}"
 
 [lua]
 format = " [${symbol}${version}]($style)"
+style  = "bright-yellow"
 symbol = " "
-style = "bright-yellow"
 
 [nodejs]
-format = " [${symbol}($version)](green)"
-symbol = " "
 detect_files = ["package-lock.json", "yarn.lock"]
+format       = " [${symbol}($version)](green)"
+symbol       = " "
 # version_format = "${major}.${minor}"
 
 [python]
-format = " [${symbol}${version}]($style)"
-symbol = "[](bright-blue) "
+format         = " [${symbol}${version}]($style)"
+style          = "bright-yellow"
+symbol         = "[](bright-blue) "
 version_format = "${major}.${minor}"
-style = "bright-yellow"
 
 [ruby]
-format = " [${symbol}${version}]($style)"
-symbol = " "
+format         = " [${symbol}${version}]($style)"
+style          = "red"
+symbol         = " "
 version_format = "${major}.${minor}"
-style = "red"
 
 [rust]
-format = " [$symbol$version]($style)"
-symbol = " "
+format         = " [$symbol$version]($style)"
+style          = "red"
+symbol         = " "
 version_format = "${major}.${minor}"
-style = "red"
 
 [package]
-format = " [$symbol$version]($style)"
+format         = " [$symbol$version]($style)"
+style          = "bright-yellow"
+symbol         = "󰏗 "
 version_format = "${major}.${minor}"
-symbol = "󰏗 "
-style = "bright-yellow"
 
 [swift]
-format = " sw [${symbol}${version}]($style)"
-symbol = "◁ "
-style = "bright-red"
+format         = " sw [${symbol}${version}]($style)"
+style          = "bright-red"
+symbol         = "◁ "
 version_format = "${major}.${minor}"
 
 [aws]
 format = " aws [$symbol $profile $region]($style)"
-style = "blue"
+style  = "blue"
 symbol = "  "
 
 [buf]
-symbol = " "
 format = " [$symbol$version $buf_version]($style)"
+symbol = " "
 
 [c]
-symbol = " "
 format = " $symbol($version(-$name))]($style)"
+symbol = " "
 
 [conda]
-symbol = " "
 format = " [$symbol$environment]($style)"
+symbol = " "
 
 [dart]
-symbol = " "
 format = " [$symbol($version )]($style)"
+symbol = " "
 
 [docker_context]
-symbol = " "
 format = " [$symbol$context]($style)"
+symbol = " "
 
 [elixir]
-symbol = " "
 format = " [$symbol $version OTP $otp_version ]($style)"
+symbol = " "
 
 [elm]
-symbol = " "
 format = " [$symbol($version )]($style)"
+symbol = " "
 
 [golang]
-symbol = " "
 format = " [$symbol($version )]($style)"
+symbol = " "
 
 [haskell]
-symbol = " "
 format = " [$symbol($version )]($style)"
+symbol = " "
 
 [java]
-symbol = " "
 format = " [${symbol}(${version} )]($style)"
+symbol = " "
 
 [julia]
-symbol = " "
 format = " [$symbol($version )]($style)"
+symbol = " "
 
 [memory_usage]
-symbol = "󰍛 "
 format = " [${ram}( ${swap})]($style)"
+symbol = "� "
 
 [nim]
-symbol = "󰆥 "
 format = " [$symbol($version )]($style)"
+symbol = "󰆥 "
 
 [nix_shell]
-symbol = " "
 format = " [$symbol$state $name]($style)"
+symbol = " "
 
 [spack]
-symbol = "◇ "
 format = " spack [$symbol$environment]($style)"
+symbol = "◇ "
 
 [os]
 disabled = true
 
-[os.symbols]
-Alpaquita = " "
-Alpine = " "
-Amazon = " "
-Android = " "
-Arch = " "
-Artix = " "
-CentOS = " "
-Debian = " "
-DragonFly = " "
-Emscripten = " "
-EndeavourOS = " "
-Fedora = " "
-FreeBSD = " "
-Garuda = "󰛓 "
-Gentoo = " "
-HardenedBSD = "󰞌 "
-Illumos = "󰈸 "
-Linux = " "
-Mabox = " "
-Macos = " "
-Manjaro = " "
-Mariner = " "
-MidnightBSD = " "
-Mint = " "
-NetBSD = " "
-NixOS = " "
-OpenBSD = "󰈺 "
-openSUSE = " "
-OracleLinux = "󰌷 "
-Pop = " "
-Raspbian = " "
-Redhat = " "
-RedHatEnterprise = " "
-Redox = "󰀘 "
-Solus = "󰠳 "
-SUSE = " "
-Ubuntu = " "
-Unknown = " "
-Windows = "󰍲 "
+    [os.symbols]
+    Alpaquita        = " "
+    Alpine           = " "
+    Amazon           = " "
+    Android          = " "
+    Arch             = " "
+    Artix            = " "
+    CentOS           = " "
+    Debian           = " "
+    DragonFly        = " "
+    Emscripten       = " "
+    EndeavourOS      = " "
+    Fedora           = " "
+    FreeBSD          = " "
+    Garuda           = "󰛓 "
+    Gentoo           = " "
+    HardenedBSD      = "󰞌 "
+    Illumos          = "󰈸 "
+    Linux            = " "
+    Mabox            = " "
+    Macos            = " "
+    Manjaro          = " "
+    Mariner          = " "
+    MidnightBSD      = " "
+    Mint             = " "
+    NetBSD           = " "
+    NixOS            = " "
+    OpenBSD          = "󰈺 "
+    OracleLinux      = "󰌷 "
+    Pop              = " "
+    Raspbian         = " "
+    RedHatEnterprise = " "
+    Redhat           = " "
+    Redox            = "󰀘 "
+    SUSE             = " "
+    Solus            = "󰠳 "
+    Ubuntu           = " "
+    Unknown          = " "
+    Windows          = "󰍲 "
+    openSUSE         = " "

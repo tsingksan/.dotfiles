@@ -6,6 +6,7 @@ export RUSTUP_DIST_SERVER=https://mirrors.tuna.tsinghua.edu.cn/rustup
 eval "$(starship init zsh)"
 
 plugins=(
+  1password
   git
   npm
   nvm
@@ -17,23 +18,12 @@ plugins=(
   pnpm-shell-completion
   fzf-tab
   forgit
+  gpg-agent
   # zsh-autosuggestions
   # zsh-syntax-highlighting
   # zsh-wakatime
   # zsh-history-substring-search
 )
-
-export GPG_TTY=$(tty)
-gpg-connect-agent updatestartuptty /bye >/dev/null
-# if ! pgrep -x "gpg-agent" > /dev/null
-# then
-#     gpg-agent --daemon
-# fi
-
-unset SSH_AGENT_PID
-if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
-  export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
-fi
 
 # Set the default editor
 alias vim='nvim'
