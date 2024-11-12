@@ -7,9 +7,9 @@ eval "$(starship init zsh)"
 
 plugins=(
   1password
+  mise
   git
   npm
-  nvm
   yarn
   rust
   git-commit
@@ -36,7 +36,6 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
-
 function cd() {
   builtin cd "$@" && ls
 }
@@ -44,12 +43,10 @@ function cd() {
 proxy() {
   export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890
 }
-
 noproxy () {
   unset http_proxy https_proxy all_proxy
   echo "HTTP Proxy off"
 }
-
 if [ -z "$https_proxy" ]; then
   proxy
 fi
