@@ -12,6 +12,7 @@ setopt HIST_IGNORE_SPACE         # Don\'t record an entry starting with a space.
 setopt HIST_SAVE_NO_DUPS         # Don\'t write duplicate entries in the history file.
 setopt HIST_REDUCE_BLANKS        # Remove superfluous blanks before recording entry.
 setopt HIST_NO_STORE             # 不存储 history 命令本身
+export HIST_IGNORE_PATTERN="*pnpm add*|*pnpm remove*"
 
 # https://blog.jasongzy.com/shell-history.html
 [ ${BASH_VERSION} ] && PROMPT_COMMAND="mypromptcommand"

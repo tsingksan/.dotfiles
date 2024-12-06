@@ -47,7 +47,7 @@ zinit wait'0b' lucid for \
     Aloxaf/fzf-tab \
         svn \
         id-as"z" \
-        atinit"zstyle ':completion:*' menu select" \
+        atinit"zstyle ':completion:*' menu select; autoload -U compinit; compinit -d "$ZSH_COMPDUMP"" \
     agkozak/zsh-z
 
 # Git and Development Tools
@@ -58,7 +58,9 @@ zinit wait'1a' lucid for \
         atload"mise activate zsh &>/dev/null" \
     OMZ::plugins/mise \
         id-as"forgit" \
-    wfxr/forgit
+    wfxr/forgit \
+        id-as"nix-zsh-completions" \
+    nix-community/nix-zsh-completions
 
 # Utility Plugins
 zinit wait'1b' lucid for \
